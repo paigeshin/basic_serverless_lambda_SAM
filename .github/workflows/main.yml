@@ -14,11 +14,11 @@ jobs:
         node-version: [14.x, 16.x] # node version 
     steps:
     - uses: actions/checkout@v2 # checkout project structures 
-    # - name: Use Node.js ${{ matrix.node-version }} # for nodejs dependencies 
-      uses: actions/setup-node@v1
+    - name: Use Node.js ${{ matrix.node-version }} 
+      uses: actions/setup-node@v1 
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
+    # - run: npm ci # for nodejs dependencies 
     - name: serverless deploy
       uses: serverless/github-action@v3
       with:
